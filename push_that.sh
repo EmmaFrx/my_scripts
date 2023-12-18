@@ -35,4 +35,4 @@ fi
 
 git commit -m "$commit_message"
 git push
-echo "\033[1;35mGood job :)\033[0m"
+echo -e "\033[1;35mGood job :)\033[0m"
