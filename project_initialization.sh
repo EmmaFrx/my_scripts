@@ -28,13 +28,13 @@ create_project_structure() {
 
     cat > "Makefile" <<EOL
 ##
-## EPITECH PROJECT, 2023
+## EPITECH PROJECT, 2024
 ## Makefile
 ## File description:
 ## Makefile for $project_name
 ##
 
-NAME =
+NAME = $project_name
 
 CC = gcc
 
@@ -64,7 +64,7 @@ EOL
 
     cat > "main.c" <<EOL
 /*
-** EPITECH PROJECT, 2023
+** EPITECH PROJECT, 2024
 ** main.c
 ** File description:
 ** main.c for $project_name
