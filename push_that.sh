@@ -34,5 +34,5 @@ if [ -z "$commit_message" ]; then
 fi
 
 git commit -m "$commit_message"
-git push
+git push > /dev/null
 echo -e "\033[1;35mGood job :)\033[0m"
