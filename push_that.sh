@@ -33,6 +33,6 @@ if [ -z "$commit_message" ]; then
     commit_message="[~] update -> update file(s)"
 fi
 
-git commit -m "$commit_message"
-git push > /dev/null
+git commit -m "$commit_message" &> /dev/null
+git push &> /dev/null
 echo -e "\033[1;35mGood job :)\033[0m"
