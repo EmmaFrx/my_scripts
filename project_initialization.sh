@@ -26,7 +26,7 @@ create_project_structure() {
     mkdir -p "include" "functions"
     touch "include/$project_name.h"
 
-    cat > "Makefile" <<EOL
+    cat <<EOL > "Makefile"
 ##
 ## EPITECH PROJECT, 2024
 ## Makefile
@@ -39,22 +39,22 @@ NAME = $project_name
 CC = gcc
 
 FLAGS =  -Wall -Wextra -Wno-unused-value -Wno-sign-compare \
-			 -Wno-unused-parameter -I./include
+			    -Wno-unused-parameter -I./include
 
 SRC = main.c
 
-OBJ = \$(SRC:.c=.o)
+OBJ = \$(shell find ./ -type f -name "*.c")
 
 all: \$(NAME)
 
 \$(NAME):    \$(OBJ)
-                    \$(CC) \$(FLAGS) -o \$(NAME) \$(OBJ)
+             \$(CC) \$(FLAGS) -o \$(NAME) \$(OBJ)
 
 clean:
         @rm -f \$(OBJ)
 
 fclean: clean
-                @rm -f \$(NAME)
+        @rm -f \$(NAME)
 
 re: fclean all
 EOL
@@ -74,10 +74,11 @@ EOL
 
 int main(int argc, char **argv)
 {
-    return 0;
+    return 84;
 }
-
 EOL
+
+~/my_scripts/functions_need.sh "$project_name"
 }
 
 if is_github_repo; then
