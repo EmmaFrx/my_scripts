@@ -19,7 +19,7 @@ fi
 read -p "Do you have specific files to add ? (y/n): " add_files
 
 if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
-    read -e -p "Please enter space-separated list of files to add:" files_to_add
+    read -e -i "" -p "Please enter space-separated list of files to add:" files_to_add
     git add $files_to_add
     success_message "$files_to_add are added"
 else
@@ -27,7 +27,7 @@ else
     success_message "All files are added"
 fi
 
-read -p "Enter commit message: " commit_message
+read -e -i "" -p "Enter commit message: " commit_message
 
 if [ -z "$commit_message" ]; then
     commit_message="[~] update -> update file(s)"
