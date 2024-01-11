@@ -85,6 +85,18 @@ EOL
     #include <stdint.h>
 EOL
     ;;
+       "time")
+          echo "Add lib time"
+          cat <<EOL >> "include/$project_name.h"
+    #include <time.h>
+EOL
+          ;;
+       "unistd")
+          echo "Add lib unistd"
+          cat <<EOL >> "include/$project_name.h"
+    #include <unistd.h>
+EOL
+       ;;
   *)
     echo "what is this lib bro?"
     ;;
