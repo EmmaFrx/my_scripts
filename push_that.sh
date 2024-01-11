@@ -16,7 +16,7 @@ else
     handle_error "gitignore not found."
 fi
 
-read -i "" -p "Do you have specific files to add ? (y/n): " add_files
+read -e -i "" -p "Do you have specific files to add ? (y/n): " add_files
 
 if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
     read -e -i "" -p "Please enter space-separated list of files to add: " files_to_add
