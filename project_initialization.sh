@@ -25,6 +25,71 @@ create_project_structure() {
 
     mkdir -p "include" "functions"
     touch "include/$project_name.h"
+    uppercase_proj=$(echo "$project_name" | tr '[:lower:]' '[:upper:]')
+
+
+    cat <<EOL > "include/$project_name.h"
+/*
+** EPITECH PROJECT, 2024
+** $project_name .h
+** File description:
+** header for $project_name
+*/
+
+#pragma once
+    #define ${uppercase_proj}_H
+EOL
+
+    echo "Enter the lib you want to include (separate with a space): "
+    read -e -i "" lib_name
+
+    IFS=' ' read -ra names <<< "$lib_name"
+
+    for name in "${names[@]}"; do
+      case "$name" in
+          "stdlib")
+              echo "Add lib stdlib"
+              cat <<EOL >> "include/$project_name.h"
+    #include <stdlib.h>
+EOL
+    ;;
+
+        "stdio")
+            echo "Add lib stdio"
+            cat <<EOL >> "include/$project_name.h"
+    #include <stdio.h>
+EOL
+    ;;
+
+       "string")
+           echo "Add lib string"
+           cat <<EOL >> "include/$project_name.h"
+    #include <string.h>
+EOL
+    ;;
+       "math")
+           echo "Add lib math"
+           cat <<EOL >> "include/$project_name.h"
+    #include <math.h>
+EOL
+    ;;
+       "stdbool")
+          echo "Add lib stdbool"
+          cat <<EOL >> "include/$project_name.h"
+    #include <stdbool.h>
+EOL
+    ;;
+       "stdint")
+          echo "Add lib stdint"
+          cat <<EOL >> "include/$project_name.h"
+    #include <stdint.h>
+EOL
+    ;;
+  *)
+    echo "what is this lib bro?"
+    ;;
+  esac
+done
 
     cat <<EOL > "Makefile"
 ##
@@ -41,22 +106,27 @@ CC = gcc
 FLAGS =  -Wall -Wextra -Wno-unused-value -Wno-sign-compare \
 			    -Wno-unused-parameter -I./include
 
-SRC = main.c
+SRC = \$(shell find ./ -type f -name "*.c")
 
-OBJ = \$(shell find ./ -type f -name "*.c")
+OBJ = \$(SRC:./%.c=./obj/%.o)
 
 all: \$(NAME)
 
 \$(NAME):    \$(OBJ)
              \$(CC) \$(FLAGS) -o \$(NAME) \$(OBJ)
 
+./obj/%.o: ./%.c
+        @mkdir -p \$(dir \$@)
+        @\$(CC) -c -o \$@ \$< \$(FLAGS)
+
 clean:
-        @rm -f \$(OBJ)
+        @rm -rf obj
 
 fclean: clean
         @rm -f \$(NAME)
 
 re: fclean all
+
 EOL
 
     sed -i "s/    /\t/gi" Makefile
@@ -76,6 +146,7 @@ int main(int argc, char **argv)
 {
     return 84;
 }
+
 EOL
 
 ~/my_scripts/functions_need.sh "$project_name"
@@ -88,7 +159,7 @@ else
     echo -e "\033[1;36mYou are not in a GitHub repository. Do you want to create the structure here ? (y/n) \033[0m"
     read create_here
 
-    if [ "$create_here" == "y" ] || [ "$create_here" == "Y" ]; then
+    if [ "$create_here" == "y" ] || [ "$create_here" == "Y" ] || [ "$create_here" == "Yes" ] || [ "$create_here" == "yes" ]; then
         create_project_structure
         success_message "Project structure created in $(pwd)."
     else
