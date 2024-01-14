@@ -21,9 +21,15 @@ get_github_repo_name() {
 
 create_project_structure() {
     echo -e "\033[1;36mEnter the project name:\033[0m"
-    read project_name
+    read -e -i "" -p " " project_name
 
     mkdir -p "include" "functions"
+
+    read -e -i "" -p "Do you want to create a directory named 'test' (y/n)?" test
+    if [ "$test" == "y" ] || [ "$test" == "Y" ]; then
+        mkdir -p "test"
+    fi
+
     touch "include/$project_name.h"
     uppercase_proj=$(echo "$project_name" | tr '[:lower:]' '[:upper:]')
 
