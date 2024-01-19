@@ -23,7 +23,7 @@ if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
     git add $files_to_add
     success_message "$files_to_add are added"
 else
-    git add .
+    git add *
     success_message "All files are added"
 fi
 
