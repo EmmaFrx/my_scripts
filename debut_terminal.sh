@@ -361,3 +361,5 @@ random_index=$((RANDOM % array_length))
 
 # Echo the randomly chosen variable
 echo "${variables[random_index]}"
+
+echo "Hello :)"
