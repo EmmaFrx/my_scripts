@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# System Monitoring Script
 
 # Function to get CPU usage
 get_cpu_usage() {
