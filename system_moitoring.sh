@@ -26,7 +26,7 @@ get_disk_space() {
 # Display system information in a table
 while true; do
   clear  # Clear the terminal screen for a cleaner display
-  echo "System Monitoring Script"
+  echo "System Monitoring Script :"
   echo "+----------------------+----------------------+"
   echo "|      Information     |       Value          |"
   echo "+----------------------+----------------------+"
