@@ -31,12 +31,31 @@ else
     success_message "All files are added"
 fi
 
+read -ei "" -p "Choose an commit mode:
+> (default) 1 -> for a modification --> [~]
+> 2 -> for a addition --> [+]
+> 3 -> for a removal --> [-]" commit_mode
+
+if [ -n "$commit_mode" ]; then
+    commit_mode="1"
+fi
+
+if [ "$commit_mode" == "1" ]; then
+    commit_mode="[~]"
+elif [ "$commit_mode" == "2" ]; then
+    commit_mode="[+]"
+else
+    commit_mode="[~]"
+fi
+
 read -e -i "" -p "Enter commit message: " commit_message
 
 if [ -z "$commit_message" ]; then
-    commit_message="[~] update -> update file(s)"
+    commit_message="update -> update file(s)"
 fi
 
-git commit -m "$commit_message" &> /dev/null
-git push
+git commit -m "$commit_mode $commit_message" &> /dev/null
+if ! git push &> /dev/null; then
+    echo -e "Error: Push Failed!"
+fi
 echo -e "\033[1;35mGood job :)\033[0m"
