@@ -56,6 +56,6 @@ fi
 
 git commit -m "$commit_mode $commit_message" &> /dev/null
 if ! git push &> /dev/null; then
-    echo -e "Error: Push Failed!"
+    handle_error "Error: Push Failed!"
 fi
 echo -e "\033[1;35mGood job :)\033[0m"
