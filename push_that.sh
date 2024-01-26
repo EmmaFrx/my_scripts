@@ -37,11 +37,11 @@ if [ -n "$commit_mode" ]; then
 fi
 
 if [ "$commit_mode" == "3" ]; then
-    commit_mode="[-] delete ->"
+    commit_mode="[-] delete -->"
 elif [ "$commit_mode" == "2" ]; then
-    commit_mode="[+] add ->"
+    commit_mode="[+] add -->"
 else
-    commit_mode="[~] update ->"
+    commit_mode="[~] update -->"
 fi
 
 read -e -i "" -p "Enter commit message: " commit_message
