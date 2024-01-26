@@ -55,6 +55,7 @@ if [ -z "$commit_message" ]; then
 fi
 
 git commit -m "$commit_mode $commit_message" &> /dev/null
+git push
 if git push &> /dev/null; then
     handle_error "Error: Push Failed!"
 fi
