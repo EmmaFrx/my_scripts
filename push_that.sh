@@ -16,6 +16,15 @@ else
     handle_error "gitignore not found."
 fi
 
+echo "You are in this branch :"
+git branch
+
+read -e -i "" -p "Do you want to push here ? (Y/n) " branch_choice
+
+if [ "$branch_choice" == "N" ] [ "$branch_choice" == "n" ]; then
+    handle_error "then switch branch."
+fi
+
 read -e -i "" -p "Do you have specific files to add ? (y/N): " add_files
 
 if [ -n "$add_files" ]; then

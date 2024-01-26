@@ -26,6 +26,7 @@ get_disk_space() {
 # Display system information in a table
 while true; do
   clear  # Clear the terminal screen for a cleaner display
+
   echo "System Monitoring Script :"
   echo "+----------------------+----------------------+"
   echo "|      Information     |       Value          |"
@@ -35,6 +36,6 @@ while true; do
   get_memory_usage
   get_disk_space
 
-  echo "+----------------------+---------------------+"
+  echo "+----------------------+----------------------+"
   sleep 2  # Adjust the sleep duration as needed (in seconds)
 done
