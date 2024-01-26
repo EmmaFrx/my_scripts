@@ -18,10 +18,6 @@ fi
 
 read -e -i "" -p "Do you have specific files to add ? (y/N): " add_files
 
-if [ -n "$add_files" ]; then
-    add_files="n"
-fi
-
 if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
     read -e -i "" -p "Please enter space-separated list of files to add: " files_to_add
     git add $files_to_add
@@ -34,18 +30,18 @@ fi
 read -ei "" -p "Choose an commit mode:
 > (default) 1 -> for a modification --> [~]
 > 2 -> for a addition --> [+]
-> 3 -> for a removal --> [-]" commit_mode
+> 3 -> for a removal --> [-] " commit_mode
 
 if [ -n "$commit_mode" ]; then
     commit_mode="1"
 fi
 
-if [ "$commit_mode" == "1" ]; then
-    commit_mode="[~]"
+if [ "$commit_mode" == "3" ]; then
+    commit_mode="[-] delete ->"
 elif [ "$commit_mode" == "2" ]; then
-    commit_mode="[+]"
+    commit_mode="[+] add ->"
 else
-    commit_mode="[~]"
+    commit_mode="[~] update ->"
 fi
 
 read -e -i "" -p "Enter commit message: " commit_message
