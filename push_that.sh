@@ -16,6 +16,10 @@ else
     handle_error "gitignore not found."
 fi
 
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+#HERE!!!
+if branch
 read -e -i "" -p "Do you have specific files to add ? (y/N): " add_files
 
 if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
