@@ -21,14 +21,30 @@ Don't forget to save the modification :)
 
 ## What are they for ?
 
-### debut_terminal.sh
+### * debut_terminal.sh
+Maybe one day
+<br>
 
-### grep_his.sh
+### * grep_his.sh
+Maybe one day
+<br>
 
-### header_epitech.sh
+### * header_epitech.sh
+Maybe one day
+<br>
 
-### project_initialisation.sh
+### * project_initialisation.sh
+Maybe one day
+<br>
 
-### push_that.sh
-
-### system_moitoring.sh
+### * push_that.sh
+- Automatically detects the current branch and prompts the user to commit changes on it.<br>
+- Allows the user to specify specific files to add to the commit or add all files.<br>
+- Provides options to choose a commit mode: modification, addition, or removal.<br>
+- Guides the user through the commit process with interactive prompts.<br>
+- Optionally merges changes into the main branch without creating a pull request.<br>
+<br>
+- 
+### * system_moitoring.sh
+Maybe one day
+<br>
