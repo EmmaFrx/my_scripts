@@ -65,11 +65,12 @@ read -p "Do you want to merge these changes into the main branch ? (y/N) :" merg
 
 if [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
     git checkout main
+    git pull origin main --no-edit
     git merge --no-ff "$branch_name"
     git push origin main
     git checkout "$branch_name"
 fi
 
-    echo success_message "Changes merged successfully into the main branch"
+success_message "Changes merged successfully into the main branch"
 
 echo -e "\033[1;35mGood job :)\033[0m"
