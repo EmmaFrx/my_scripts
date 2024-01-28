@@ -11,6 +11,19 @@ success_message() {
     echo -e "\033[1;32m$1\033[0m"
 }
 
+display_help() {
+    echo "Usage : $0 [options]"
+    echo "Description:"
+    echo "This script is for pushing files or directories to a GitHub repository."
+    echo "Options:"
+    echo "   -h, --help   Display the help message"
+    exit 0
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    display_help
+fi
+
 # Check if .gitignore exists, add it to staging if found, or exit with an error message
 if [ -e .gitignore ]; then
     success_message "gitignore found."
@@ -82,7 +95,7 @@ if [ "$branch_name" != "main" ]; then
 fi
 
 # If user chooses to merge, perform the merge without creating a pull request
-if [ -n "$merge_choice" ] && [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
+if [ -n "$merge_choice" ] && [ "$merge_choice" == "y" ] || [ "$merge_choice" == "Y" ]; then
     git checkout main
     git pull origin main --no-edit
     git merge --no-ff "$branch_name"
