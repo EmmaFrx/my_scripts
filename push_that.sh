@@ -18,8 +18,12 @@ fi
 
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
-#HERE!!!
-if branch
+read -p "Do you want to commit changes on the current branch '$branch_name' ? (Y/n) :" commit_choice
+
+if [ "$commit_choice" = "n" ] || [ "$commit_choice" = "N" ]; then
+    handle_error "Please go on the right branch."
+fi
+
 read -e -i "" -p "Do you have specific files to add ? (y/N): " add_files
 
 if [ "$add_files" == "y" ] || [ "$add_files" == "Y" ]; then
@@ -55,5 +59,17 @@ if [ -z "$commit_message" ]; then
 fi
 
 git commit -m "$commit_mode $commit_message" &> /dev/null
-git push
+git push origin "$branch_name"
+
+read -p "Do you want to merge these changes into the main branch ? (y/N) :" merge_choice
+
+if [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
+    git checkout main
+    git merge --no-ff "$branch_name"
+    git push origin main
+    git checkout "$branch_name"
+fi
+
+    echo success_message "Changes merged successfully into the main branch"
+
 echo -e "\033[1;35mGood job :)\033[0m"
