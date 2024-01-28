@@ -80,7 +80,7 @@ echo " "
 read -p "Do you want to merge these changes into the main branch ? (y/N) :" merge_choice
 
 # If user chooses to merge, perform the merge without creating a pull request
-if [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
+if [ "$brach_name" == "main" ] && [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
     git checkout main
     git pull origin main --no-edit
     git merge --no-ff "$branch_name"
