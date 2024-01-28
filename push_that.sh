@@ -77,7 +77,7 @@ git push origin "$branch_name"
 echo " "
 
 # Prompt the user if they want to merge changes into the main branch
-if [ "$brach_name" != "main" ]; then
+if [ "$branch_name" != "main" ]; then
     read -p "Do you want to merge these changes into the main branch ? (y/N) :" merge_choice
 fi
 
