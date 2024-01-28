@@ -86,8 +86,8 @@ if [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
     git merge --no-ff "$branch_name"
     git push origin main
     git checkout "$branch_name"
+    success_message "Changes merged successfully into the main branch"
 fi
 
-success_message "Changes merged successfully into the main branch"
 
 echo -e "\033[1;35mGood job :)\033[0m"
