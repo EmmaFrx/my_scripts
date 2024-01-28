@@ -36,7 +36,8 @@ fi
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
 # Prompt the user if they want to commit changes on the current branch
-read -p "Do you want to commit changes on the current branch '$branch_name' ? (Y/n) :" commit_choice
+echo -e -n "Do you want to commit changes on the current branch \e[1m\e[35m'$branch_name'\e[0m ? (Y/n) :"
+read commit_choice
 
 # If user chooses not to commit, exit with an error message
 if [ "$commit_choice" = "n" ] || [ "$commit_choice" = "N" ]; then
@@ -57,10 +58,11 @@ else
 fi
 
 # Prompt the user to choose a commit mode
-read -ei "" -p "Choose an commit mode:
+echo -ei "" -p "Choose an commit mode:
 > (default) 1 -> for a modification --> [~]
 > 2 -> for a addition --> [+]
-> 3 -> for a removal --> [-] " commit_mode
+> 3 -> for a removal --> [-] "
+read commit_mode
 
 # Set default commit mode if not provided
 if [ -n "$commit_mode" ]; then
