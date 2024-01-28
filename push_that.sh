@@ -77,10 +77,12 @@ git push origin "$branch_name"
 echo " "
 
 # Prompt the user if they want to merge changes into the main branch
-read -p "Do you want to merge these changes into the main branch ? (y/N) :" merge_choice
+if [ "$brach_name" != "main" ]; then
+    read -p "Do you want to merge these changes into the main branch ? (y/N) :" merge_choice
+fi
 
 # If user chooses to merge, perform the merge without creating a pull request
-if [ "$brach_name" != "main" ] && [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
+if [ -n "$merge_choice" ] && [ "$merge_choice" = "y" ] || [ "$merge_choice" = "Y" ]; then
     git checkout main
     git pull origin main --no-edit
     git merge --no-ff "$branch_name"
