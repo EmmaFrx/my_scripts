@@ -58,11 +58,11 @@ else
 fi
 
 # Prompt the user to choose a commit mode
-echo -ei "" -p "Choose an commit mode:
+echo -en "Choose an commit mode:
 > (default) 1 -> for a modification --> [~]
 > 2 -> for a addition --> [+]
-> 3 -> for a removal --> [-] "
-read commit_mode
+> 3 -> for a removal --> [-]"
+read -r commit_mode
 
 # Set default commit mode if not provided
 if [ -n "$commit_mode" ]; then
