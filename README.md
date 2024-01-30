@@ -42,7 +42,7 @@ Maybe one day
 - Allows the user to specify specific files to add to the commit or add all files.<br>
 - Provides options to choose a commit mode: modification, addition, or removal.<br>
 - Guides the user through the commit process with interactive prompts.<br>
-- Optionally merges changes into the main branch without creating a pull request.<br>
+- Optionally merges changes into the main branch without creating a pull request. :)<br>
 
 You can use the option : '-h' or '--help'
 <br>
