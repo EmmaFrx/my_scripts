@@ -25,9 +25,9 @@ create_project_structure() {
 
     mkdir -p "include" "functions"
 
-    read -e -i "" -p "Do you want to create a directory named 'test' (y/n)?" test
+    read -e -i "" -p "Do you want to create a directory named 'tests' (y/N)?" test
     if [ "$test" == "y" ] || [ "$test" == "Y" ]; then
-        mkdir -p "test"
+        mkdir -p "tests"
     fi
 
     touch "include/$project_name.h"
