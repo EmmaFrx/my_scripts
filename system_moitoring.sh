@@ -29,7 +29,7 @@ while true; do
 
   echo "System Monitoring Script :"
   echo "+----------------------+----------------------+"
-  echo "|      Information     |       Value          |"
+  echo "|      Informations    |       Value          |"
   echo "+----------------------+----------------------+"
 
   get_cpu_usage
