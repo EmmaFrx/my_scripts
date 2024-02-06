@@ -70,11 +70,6 @@ echo -en "Choose an commit mode:
 "
 read -r commit_mode
 
-# Set default commit mode if not provided
-if [ -n "$commit_mode" ]; then
-    commit_mode="1"
-fi
-
 # Map commit mode to symbolic representation
 if [ "$commit_mode" == "2" ]; then
     commit_mode="[feat] --> "
