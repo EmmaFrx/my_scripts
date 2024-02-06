@@ -115,7 +115,6 @@ if [ -n "$merge_choice" ] && [ "$merge_choice" == "y" ] || [ "$merge_choice" == 
     git pull origin main --no-edit
     git merge --no-ff "$branch_name"
     git push origin main
-    git checkout "$branch_name"
     success_message "Changes merged successfully into the main branch"
 fi
 
