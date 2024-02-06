@@ -66,7 +66,8 @@ echo -en "Choose an commit mode:
 > 5 -> for amelioration of perfomance --> [perf]
 > 6 -> for conding style --> [cs]
 > 7 -> for a test --> [test]
-> 8 -> for documentation --> [docs]"
+> 8 -> for documentation --> [docs]
+"
 read -r commit_mode
 
 # Set default commit mode if not provided
