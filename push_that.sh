@@ -64,7 +64,7 @@ echo -en "Choose an commit mode:
 > 3 -> for a removal --> [del]
 > 4 -> for a bug --> [fix]
 > 5 -> for amelioration of perfomance --> [perf]
-> 6 -> for conding style --> [cs]
+> 6 -> for coding style --> [style]
 > 7 -> for a test --> [test]
 > 8 -> for documentation --> [docs]
 "
@@ -80,7 +80,7 @@ elif [ "$commit_mode" == "4" ]; then
 elif [ "$commit_mode" == "5" ]; then
     commit_mode="[perf] -->"
 elif [ "$commit_mode" == "6" ]; then
-    commit_mode="[cs] -->"
+    commit_mode="[style] -->"
 elif [ "$commit_mode" == "7" ]; then
     commit_mode="[test] -->"
 elif [ "$commit_mode" == "8" ]; then
