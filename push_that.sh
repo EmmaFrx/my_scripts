@@ -59,9 +59,14 @@ fi
 
 # Prompt the user to choose a commit mode
 echo -en "Choose an commit mode:
-> (default) 1 -> for a modification --> [~]
-> 2 -> for a addition --> [+]
-> 3 -> for a removal --> [-]"
+> (default) 1 -> for a modification --> [refactor]
+> 2 -> for a addition --> [feat]
+> 3 -> for a removal --> [del]
+> 4 -> for a bug --> [fix]
+> 5 -> for amelioration of perfomance --> [perf]
+> 6 -> for conding style --> [cs]
+> 7 -> for a test --> [test]
+> 8 -> for documentation --> [docs]"
 read -r commit_mode
 
 # Set default commit mode if not provided
@@ -70,12 +75,22 @@ if [ -n "$commit_mode" ]; then
 fi
 
 # Map commit mode to symbolic representation
-if [ "$commit_mode" == "3" ]; then
-    commit_mode="[-] delete --> "
-elif [ "$commit_mode" == "2" ]; then
-    commit_mode="[+] add --> "
+if [ "$commit_mode" == "2" ]; then
+    commit_mode="[feat] --> "
+elif [ "$commit_mode" == "3" ]; then
+    commit_mode="[del] --> "
+elif [ "$commit_mode" == "4" ]; then
+    commit_mode="[fix] -->"
+elif [ "$commit_mode" == "5" ]; then
+    commit_mode="[perf] -->"
+elif [ "$commit_mode" == "6" ]; then
+    commit_mode="[cs] -->"
+elif [ "$commit_mode" == "7" ]; then
+    commit_mode="[test] -->"
+elif [ "$commit_mode" == "8" ]; then
+    commit_mode="[docs] -->"
 else
-    commit_mode="[~] update --> "
+    commit_mode="[refactor] --> "
 fi
 
 # Prompt the user to enter a commit message
