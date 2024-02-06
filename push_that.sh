@@ -85,6 +85,8 @@ elif [ "$commit_mode" == "7" ]; then
     commit_mode="[test] -->"
 elif [ "$commit_mode" == "8" ]; then
     commit_mode="[docs] -->"
+elif [ "$commit_mode" == "666" ]; then
+    commit_mode="[idk_bro] -->"
 else
     commit_mode="[refactor] --> "
 fi
