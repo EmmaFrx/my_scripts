@@ -23,7 +23,8 @@ create_project_structure() {
     echo -e "\033[1;36mEnter the project name:\033[0m"
     read -e -i "" -p " " project_name
 
-    mkdir -p "include" "functions"
+    mkdir -p "src"
+    mkdir -p "include" "src/functions"
 
     read -e -i "" -p "Do you want to create a directory named 'tests' (y/N)?" test
     if [ "$test" == "y" ] || [ "$test" == "Y" ]; then
@@ -150,7 +151,7 @@ EOL
     sed -i "s/    /\t/gi" Makefile
 
 
-    cat > "main.c" <<EOL
+    cat > "src/main.c" <<EOL
 /*
 ** EPITECH PROJECT, 2024
 ** main.c
@@ -158,7 +159,7 @@ EOL
 ** main.c for $project_name
 */
 
-#include "include/$project_name.h"
+#include "$project_name.h"
 
 int main(int argc, char **argv)
 {
