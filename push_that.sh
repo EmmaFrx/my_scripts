@@ -118,5 +118,4 @@ if [ -n "$merge_choice" ] && [ "$merge_choice" == "y" ] || [ "$merge_choice" == 
     success_message "Changes merged successfully into the main branch"
 fi
 
-
 echo -e "\033[1;35mGood job :)\033[0m"
