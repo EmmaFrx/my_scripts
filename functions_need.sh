@@ -60,7 +60,7 @@ EOL
 
     #Add other cases for each function
     *)
-        echo "What is $name ?"
+        echo "What is $name ? "
         ;;
     esac
 done
