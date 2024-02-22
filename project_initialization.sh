@@ -10,6 +10,7 @@ success_message() {
     echo -e "\033[1;32m$1\033[0m"
 }
 
+#
 is_github_repo() {
     git rev-parse --is-inside-work-tree &>/dev/null
 }
@@ -19,6 +20,7 @@ get_github_repo_name() {
     git config --get remote.origin.url | sed 's/.*\/\([^ ]*\/[^.]*\).*/\1/'
 }
 
+# Function for create the structure of the project
 create_project_structure() {
     echo -e "\033[1;36mEnter the project name:\033[0m"
     read -e -i "" -p " " project_name
