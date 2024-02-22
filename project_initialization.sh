@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to handle errors
+# Function to handle errors :)
 handle_error() {
     echo -e "\033[1;31mError:\033[0m $1"
 }
