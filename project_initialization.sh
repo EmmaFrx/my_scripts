@@ -170,6 +170,7 @@ int main(int argc, char **argv)
 
 EOL
 
+#for add the function you want
 ~/my_scripts/functions_need.sh "$project_name"
 }
 
