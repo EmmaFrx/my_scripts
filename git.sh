@@ -188,6 +188,49 @@ git_switch() {
     fi
 }
 
+git_delete_branch() {
+    read -e -i "" -p "Enter branch name: " branch_name
+    if [ -z "$branch_name" ] || [ "$branch_name" == "$(git branch | grep \* | cut -d' ' -f 2)"]; then
+        handle_error "Cannot delete branch!"
+    fi
+    if git rev-parse --verify "$branch_name" &>/dev/null; then
+      git branch -d "$branch_name"
+    else
+      handle_error "Branch doesn't exist!"
+    fi
+}
+
+git_delete_branch_force() {
+    read -e -i "" -p "Enter branch name: " branch_name
+    if [ -z "$branch_name" ] || [ "$branch_name" == "$(git branch | grep \* | cut -d' ' -f 2)"]; then
+        handle_error "Cannot delete branch!"
+    fi
+    if git rev-parse --verify "$branch_name" &>/dev/null; then
+      git branch -D "$branch_name"
+    else
+      handle_error "Branch doesn't exist!"
+    fi
+}
+
+git_remove_files() {
+    read -e -i "" -p "Please enter space-separated list of files to remove: " files_to_remove
+    if [ ! -z "$files_to_remove" ]; then
+        git rm $files_to_remove
+        success_message "$files_to_remove are removed"
+    fi
+}
+
+git_remove_files_force() {
+    read -e -i "" -p "Please enter space-separated list of files to remove: " files_to_remove
+    if [ ! -z "$files_to_remove" ]; then
+        git rm -rf $files_to_remove
+        success_message "$files_to_remove are removed"
+    fi
+}
+
+git_status() {
+    git status
+}
 
 for char in $(echo "$1" | grep -o .); do
     case $char in
@@ -229,6 +272,21 @@ for char in $(echo "$1" | grep -o .); do
             ;;
         W)
             git_switch_force
+            ;;
+        d)
+            git_delete_branch
+            ;;
+        D)
+            git_delete_branch_force
+            ;;
+        r)
+            git_remove_files
+            ;;
+        R)
+            git_remove_file_force
+            ;;
+        s)
+            git_status
             ;;
         *)
             handle_error "Invalid character $char!"
