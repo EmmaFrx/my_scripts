@@ -12,7 +12,7 @@ success_message() {
 
 git_add() {
     read -e -i "" -p "Please enter space-separated list of files to add: " files_to_add
-    if [ -z "$files_to_add" ]; then
+    if [ ! -z "$files_to_add" ]; then
         git add $files_to_add
         success_message "$files_to_add are added"
     else
