@@ -44,7 +44,7 @@ Maybe one day
 - Guides the user through the commit process with interactive prompts.<br>
 - Optionally merges changes into the main branch without creating a pull request. :)<br>
 
-You can use the option : '-h' or '--help'
+You can use the option : '-h' or '--help' for more informations :)
 <br>
 
 ### * system_moitoring.sh
