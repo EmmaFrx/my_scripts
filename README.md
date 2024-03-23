@@ -1,6 +1,8 @@
 # my_scripts
 All my_scripts because I'm a big lazy person :)
 
+<br>
+
 ## Prerequisites
  1. Be on linux.
  2. Git installed on your system.
